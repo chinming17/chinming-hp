@@ -724,7 +724,7 @@ body.dark-theme .skill-item:hover {
    /* --- 手機端精準微調：改用 transform 強制位移 --- */
     /* 繁中往上拉提 */
     .main-headline .lang-content.zh {
-        transform: translateY(-25px) !important; 
+        transform: translateY(-35px) !important; 
         margin-top: 0 !important; /* 將 margin 歸零以免干擾 */
     }
     
