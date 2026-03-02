@@ -446,7 +446,7 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
 /* --- 電腦端：精準微調各語言字體的隱形頂部留白 --- */
 /* 繁中作為視覺基準，不位移 */
 .main-headline .lang-content.zh {
-    margin-top: -10px; 
+    margin-top: -15px; 
 }
 
 /* 日文偏高，改為正數往下推 */
@@ -456,7 +456,7 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
 
 /* 英文偏高，改為較大的正數往下推 */
 .main-headline .lang-content.en {
-    margin-top: 15px; 
+    margin-top: 20px; 
 }
 
 .bio-text { 
