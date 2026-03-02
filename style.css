@@ -437,6 +437,22 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
 .main-headline .line-2 { text-align: center; }
 .main-headline .line-3 { text-align: right; padding-right: 5%; }
 
+/* --- 電腦端：精準微調各語言字體的隱形頂部留白 --- */
+/* 繁中作為視覺基準，不位移 */
+.main-headline .lang-content.zh {
+    margin-top: 0px; 
+}
+
+/* 日文偏高，改為正數往下推 */
+.main-headline .lang-content.jp {
+    margin-top: 10px; 
+}
+
+/* 英文偏高，改為較大的正數往下推 */
+.main-headline .lang-content.en {
+    margin-top: 15px; 
+}
+
 .bio-text { 
     font-size: 1.1rem; 
     color: var(--text); 
@@ -702,7 +718,7 @@ body.dark-theme .skill-item:hover {
     /* --- 精準微調：修正各語言字體自帶的隱形頂部留白 --- */
     /* 繁中作為視覺基準 */
     .main-headline .lang-content.zh {
-        margin-top: -30px !important; 
+        margin-top: -25px !important; 
     }
     
     /* 日文如果視覺上偏低，用負數將它微微往上拉 */
