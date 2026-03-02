@@ -36,10 +36,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* 防止頁面橫向溢出導致的底部與側邊隱形空白 */
+/* 防止頁面橫向溢出，並修復手機端上下邊界回彈 (Overscroll) 的露白問題 */
 html, body {
     overflow-x: hidden;
     width: 100%;
+    background-color: var(--bg-main); /* 讓底層完整填滿亮色背景 */
+}
+
+/* 🌟 殺手鐧：當觸發深色模式時，強制最底層的 html 也換上深色背景 */
+html:has(body.dark-theme) {
+    background-color: #121212;
 }
 
 /* 全域基礎語言字型 (保留按鈕與導覽列的無襯線設定) */
