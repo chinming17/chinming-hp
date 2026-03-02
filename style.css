@@ -51,21 +51,19 @@ html, body {
 .hero-container .lang-content.en, 
 .section-card .lang-content.en {
     font-family: 'Libre Baskerville', serif;
-    font-size: 1.05em; /* 基本微放大補償 */
+    font-size: 1.05em; 
 }
 
 /* --- 中文板塊內文專屬字型 --- */
 .hero-container .lang-content.zh, 
 .section-card .lang-content.zh {
-    font-family: 'Noto Serif TC', serif; /* 您可以將 'Noto Serif TC' 替換成任何您想要的字型 */
-    /* font-size: 1em; 如果需要微調大小，可以取消這行的註解並修改數值 */
+    font-family: 'Noto Serif TC', serif; 
 }
 
 /* --- 日文板塊內文專屬字型 --- */
 .hero-container .lang-content.jp, 
 .section-card .lang-content.jp {
-    font-family: 'Zen Old Mincho', serif; /* 您可以將 'Hina Mincho' 替換成 'Zen Old Mincho' 或其他日文字型 */
-    /* font-size: 1em; 如果需要微調大小，可以取消這行的註解並修改數值 */
+    font-family: 'Zen Old Mincho', serif; 
 }
 
 h4.lang-content.en { font-size: 1.15em; }
@@ -73,8 +71,8 @@ h4.lang-content.en { font-size: 1.15em; }
 .bio-text.lang-content.en { 
     font-size: 1.25rem; 
     line-height: 1.2; 
-    text-align: left; /* 將英文強制改為靠左對齊，消除異常空白 */
-    hyphens: auto;    /* 開啟自動連字符，讓過長的單字(如 communication)可以在行尾優雅斷行 */
+    text-align: left; 
+    hyphens: auto;    
 }
 .item-detail p.lang-content.en, 
 .item-detail .job-title.lang-content.en { font-size: 1.05rem; }
@@ -98,7 +96,6 @@ body::before {
     padding: 0.8rem 2rem; 
     border-radius: 50px;
     
-    /* 1. 棄用會卡頓的 margin: auto，改用 transform 達成絕對置中 */
     position: fixed;
     top: 20px; 
     left: 50%;
@@ -114,22 +111,19 @@ body::before {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     z-index: 1000;
     
-    /* 2. 採用 Material Design 標準貝茲曲線，讓加減速極度自然 */
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navbar.shrunk {
-    width: 130px; 
-    max-width: 130px; 
-    /* ⬇️修改：將左右 padding 設為 0，把置中任務完全交給 Flexbox */
-    padding: 0.6rem 0; 
+    width: 130px !important; 
+    max-width: 130px !important; 
+    padding: 0.6rem 0 !important; 
     
     left: calc(100% - 20px);
     transform: translateX(-100%);
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     
-    /* ⬇️新增：強制覆蓋原本的左右撐開，讓按鈕群組在膠囊內絕對置中 */
     justify-content: center !important; 
 }
 
@@ -146,15 +140,22 @@ body::before {
     color: #e69c00; 
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3); 
     
-    /* 與父容器保持完全一致的動畫時間與曲線 */
     transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 修復導航欄縮小時 Logo 殘留寬度的 Bug */
 .navbar.shrunk .logo {
-    max-width: 0;
-    opacity: 0;
-    margin: 0;
-    padding: 0; /* 確保收縮時不佔據任何空間 */
+    display: none !important;
+}
+
+/* 修復導航欄縮小時 按鈕群組不居中的 Bug */
+.navbar.shrunk .nav-controls {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 0.6rem !important; 
 }
 
 body.dark-theme .navbar {
@@ -392,7 +393,7 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center; /* 新增：讓標題、內文與按鈕組在區塊內水平置中 */
+    align-items: center; 
 }
 
 /* --- 主標題全局排版設定 --- */
@@ -411,15 +412,15 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
     display: block;
 }
 
-/* 終極壓扁設定：強制抹除任何隱形外邊距與上下內邊距 */
-    .main-headline span[class^="line-"] {
-        display: block !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-        line-height: 1.1 !important; 
-    }
+/* 強制抹除任何隱形外邊距與上下內邊距 */
+.main-headline span[class^="line-"] {
+    display: block !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    line-height: 1.1 !important; 
+}
 
 /* 全域適用：中、日、英 階梯式對齊 (左、中、右) */
 .main-headline .line-1 { text-align: left; padding-left: 5%; }
@@ -440,8 +441,8 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
 .cta-group { 
     display: flex; 
     gap: 1.5rem; 
-    justify-content: center; /* 新增：讓按鈕組在水平方向置中 */
-    width: 100%;             /* 確保容器佔滿寬度以利置中計算 */
+    justify-content: center; 
+    width: 100%;             
 }
 .btn { 
     padding: 2px 0 0 0; 
@@ -584,8 +585,8 @@ body.dark-theme .skill-item:hover {
 .main-headline .lang-content.en, .section-title .lang-content.en { font-family: 'Limelight', cursive; font-weight: 400; }
 
 .category-title { color: var(--primary); margin-bottom: 1.5rem; font-size: 1.4rem;}
-.category-title .lang-content.zh { font-family: 'Noto Serif TC', serif; font-weight: 700; font-weight: 700; letter-spacing: 2px;}
-.category-title .lang-content.jp { font-family: 'Zen Old Mincho', serif; font-weight: 700; font-weight: 700; letter-spacing: 2px;}
+.category-title .lang-content.zh { font-family: 'Noto Serif TC', serif; font-weight: 700; letter-spacing: 2px;}
+.category-title .lang-content.jp { font-family: 'Zen Old Mincho', serif; font-weight: 700; letter-spacing: 2px;}
 .category-title .lang-content.en { font-family: 'Libre Baskerville', serif; font-weight: 700; letter-spacing: 1px;}
 
 /* --- 排除按鈕字型設定 --- */
@@ -595,27 +596,24 @@ body.dark-theme .skill-item:hover {
 
 /* --- 電腦端：聯絡圖示懸浮變色與上浮特效 --- */
 .icon-link {
-    display: inline-block; /* 確保上浮動畫能正確觸發 */
+    display: inline-block; 
     transition: all 0.3s ease !important;
 }
 
-/* 針對 SVG 內部路徑的平滑過渡 */
 .icon-link svg path {
     transition: fill 0.3s ease !important;
 }
 
-/* 滑鼠懸浮時的變色(橘金色)與微幅上浮設定 */
 .icon-link:hover {
     color: #e69c00 !important; 
     transform: translateY(-4px) !important; 
 }
 
-/* 確保 SVG 圖片也能同步變色 */
 .icon-link:hover svg path {
     fill: #e69c00 !important; 
 }
 
-/* --- 聯絡方式文字與圖示排版 (強制破除快取版) --- */
+/* --- 聯絡方式文字與圖示排版 --- */
 .contact-wrapper {
     display: flex;
     align-items: center;
@@ -631,8 +629,6 @@ body.dark-theme .skill-item:hover {
     letter-spacing: 1px !important;
     line-height: 1 !important;
     margin: 0 !important;
-    
-    /*關鍵修正：改成正數，將文字往下推*/
     transform: translateY(7px) !important; 
 }
 
@@ -650,16 +646,25 @@ body.dark-theme .skill-item:hover {
     text-decoration: none;
 }
 
-/* 手機版與平板設定 */
+/* =========================================
+   手機版與平板設定 (max-width: 992px)
+========================================= */
 @media (max-width: 992px) {
     .navbar { padding: 1rem 5%; }
-    .hero-container { flex-direction: column; text-align: center; gap: 3rem; padding-top: 120px; }
     
-   /* --- 手機/平板端標題：鎖定最大寬度比例 --- */
+    .hero-container { 
+        flex-direction: column; 
+        text-align: center; 
+        gap: 3rem; 
+        padding-top: 120px; 
+        padding-left: 5%; 
+        padding-right: 5%; 
+    }
+    
+    /* --- 手機/平板端標題：鎖定最大寬度比例 --- */
     .main-headline { 
         font-size: 2.2rem !important; 
         width: 100% !important;
-        /* 🌟 關鍵：給定一個絕對上限，讓它達到這個寬度後就不再互相拉遠 */
         max-width: 340px !important; 
         margin: 0 auto 1.5rem !important;
         display: flex !important; 
@@ -669,9 +674,10 @@ body.dark-theme .skill-item:hover {
     
     .main-headline br { display: none !important; }
 
-    .main-headline * {
+    /* 修復 BUG：只針對 span 子元素強制壓扁，不影響語言切換的 display:none */
+    .main-headline span[class^="line-"] {
         display: block !important;
-        line-height: 1.0 !important; 
+        line-height: 1.1 !important; 
         margin: 0 !important;
         padding-top: 0 !important;
         padding-bottom: 0 !important;
@@ -680,55 +686,28 @@ body.dark-theme .skill-item:hover {
 
     /* 將百分比縮進改為絕對像素，確保階梯形狀鎖死不變形 */
     .main-headline .line-1 { padding-left: 15px !important; }
+    .main-headline .line-2 { text-align: center !important; }
     .main-headline .line-3 { padding-right: 15px !important; }
-        
-        /* 啟用 Flex 排版來絕對控制子元素的距離 */
-        display: flex; 
-        flex-direction: column; 
-        gap: 0.2rem; /* 💡 這是三行字之間的精準距離，您可以改成 0.5rem 或 0 試試看 */
-    }
-    
-    /* 殺手鐧：隱藏可能造成額外空行的 <br> 標籤 */
-    .main-headline br {
-        display: none !important;
-    }
-
-    /* 確保每一行乾淨俐落 */
-    .main-headline span[class^="line-"] {
-        display: block !important;
-        line-height: 1.1 !important; 
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    /* 針對平板裝置縮減階梯式的縮進距離 */
-    .main-headline .line-1 { padding-left: 2%; }
-    .main-headline .line-3 { padding-right: 2%; }
     
     .cta-group { flex-direction: column; align-items: center; width: 100%; gap: 1rem; }
     .btn { width: 100%; max-width: 280px; }
     .dot-nav { display: none; }
     .section-card { padding: 3rem 5%; margin-bottom: 2rem; }
-    .icon-link:hover { transform: none; } 
-    /* --- 修復手機與平板端的置中偏移問題 --- */
+    .icon-link:hover { transform: none !important; } 
     
-    /* 1. 覆寫桌機版不對稱的左右內邊距，將兩側統一為 5% 完美置中 */
-    .hero-container { 
-        padding-left: 5%; 
-        padding-right: 5%; 
-    }
-    
-    /* 2. 解除頭像卡片原本 380px 的死寬度限制，避免撐破螢幕邊界導致偏移 */
+    /* 解除頭像卡片死寬度限制，避免撐破螢幕邊界導致偏移 */
     .profile-card {
         flex: 1 1 auto;
         width: 100%;
-        max-width: 350px; /* 限制最大寬度以適應所有手機型號 */
-        margin: 0 auto;   /* 強制卡片本身在容器內絕對居中 */
-        padding: 2.5rem 1.5rem; /* 稍微縮小手機版卡片內的留白，比例更好看 */
+        max-width: 350px; 
+        margin: 0 auto;   
+        padding: 2.5rem 1.5rem; 
     }
 }
 
-/* 極窄螢幕(手機端)設定 */
+/* =========================================
+   極窄螢幕(手機端)設定 (max-width: 480px)
+========================================= */
 @media (max-width: 480px) {
     .navbar { padding: 0.6rem 4%; }
     .navbar .logo { font-size: 1.1rem; letter-spacing: 0px; max-width: 120px; }
@@ -737,27 +716,20 @@ body.dark-theme .skill-item:hover {
     
     .main-headline { font-size: 2.4rem; line-height: 1.3; margin-bottom: 1.5rem; }
     .main-headline .lang-content.en { font-size: 2.1rem; line-height: 1.2; }
-    /* --- 消除手機端底部一大段空白 --- */
-    #credits.section-card { 
-        margin-bottom: 1rem; 
-    }
-    .footer { 
-        padding: 1.5rem 1rem 2rem; /* 大幅縮減原本 4rem 的超大內邊距 */
-    }
-    .footer p {
-        margin: 0; /* 消除文字預設的底部外推空間 */
-    }
+    
+    /* 消除手機端底部一大段空白 */
+    #credits.section-card { margin-bottom: 1rem; }
+    .footer { padding: 1.5rem 1rem 2rem; }
+    .footer p { margin: 0; }
 }
 
 /* --- 點狀導航自動隱藏特效 --- */
 .dot-nav {
-    /* 增加平滑淡出的過渡動畫 */
     transition: opacity 0.6s ease, visibility 0.6s ease;
 }
 
-/* 觸發隱藏時的狀態 */
 .dot-nav.idle-hidden {
     opacity: 0 !important;
     visibility: hidden;
-    pointer-events: none; /* 隱藏時防止誤觸 */
+    pointer-events: none; 
 }
