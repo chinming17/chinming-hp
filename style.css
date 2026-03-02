@@ -702,7 +702,7 @@ body.dark-theme .skill-item:hover {
     /* --- 精準微調：修正各語言字體自帶的隱形頂部留白 --- */
     /* 繁中作為視覺基準 */
     .main-headline .lang-content.zh {
-        margin-top: -20px !important; 
+        margin-top: -30px !important; 
     }
     
     /* 日文如果視覺上偏低，用負數將它微微往上拉 */
