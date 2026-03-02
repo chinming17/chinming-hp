@@ -148,14 +148,20 @@ body::before {
     display: none !important;
 }
 
-/* 修復導航欄縮小時 按鈕群組不居中的 Bug */
+/* 徹底修復導航欄縮小時 按鈕群組不居中的 Bug */
+.navbar.shrunk .nav-links {
+    margin: 0 !important; /* 🌟 殺手鐧：取消往右擠的推力 */
+    width: 100% !important;
+    justify-content: center !important;
+}
+
 .navbar.shrunk .nav-controls {
     margin: 0 !important;
     padding: 0 !important;
-    width: 100% !important;
+    width: auto !important;
     display: flex !important;
     justify-content: center !important;
-    gap: 0.6rem !important; 
+    gap: 0.8rem !important; /* 按鈕之間的微調距離 */
 }
 
 body.dark-theme .navbar {
