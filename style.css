@@ -440,7 +440,7 @@ body.dark-theme .dropdown-btn:hover { background: var(--primary); color: var(--b
 /* --- 電腦端：精準微調各語言字體的隱形頂部留白 --- */
 /* 繁中作為視覺基準，不位移 */
 .main-headline .lang-content.zh {
-    margin-top: 0px; 
+    margin-top: -10px; 
 }
 
 /* 日文偏高，改為正數往下推 */
