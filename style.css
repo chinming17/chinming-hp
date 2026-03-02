@@ -119,25 +119,18 @@ body::before {
 }
 
 .navbar.shrunk {
-    width: 130px !important; 
-    max-width: 130px !important; 
-    padding: 0.6rem 0 !important; 
+    width: 130px; 
+    max-width: 130px; 
+    /* ⬇️修改：將左右 padding 設為 0，把置中任務完全交給 Flexbox */
+    padding: 0.6rem 0; 
+    
+    left: calc(100% - 20px);
+    transform: translateX(-100%);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    
+    /* ⬇️新增：強制覆蓋原本的左右撐開，讓按鈕群組在膠囊內絕對置中 */
     justify-content: center !important; 
-}
-
-/* 確保 Logo 在縮小時徹底消失，不殘留任何隱形寬度將按鈕擠偏 */
-.navbar.shrunk .logo {
-    display: none !important;
-}
-
-/* 強制將按鈕群組在膠囊內絕對置中，並微調兩個按鈕的間距 */
-.navbar.shrunk .nav-controls {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 100% !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 0.6rem !important; 
 }
 
 .navbar .logo { 
