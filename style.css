@@ -216,14 +216,18 @@ body.dark-theme .navbar .logo {
     color: var(--bg-card);
 }
 
+/* 強制隱藏文字與箭頭 */
 .navbar.shrunk .dropdown-btn #current-lang-text,
 .navbar.shrunk .dropdown-btn .fa-caret-down {
-    display: none;
+    display: none !important;
 }
+
+/* 🌟 核心修復：無視手機版的 115px 固定寬度，強制按鈕寬度自適應 */
 .navbar.shrunk .dropdown-btn {
-    padding: 6px 10px;
-    width: auto;
-    justify-content: center;
+    padding: 6px 10px !important;
+    width: auto !important;
+    min-width: 0 !important; 
+    justify-content: center !important;
 }
 
 .dropdown-content {
